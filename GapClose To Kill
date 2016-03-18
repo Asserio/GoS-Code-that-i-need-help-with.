@@ -1,0 +1,15 @@
+function GapCloser(unit)
+local mousePos = GetMousePos()
+local Qdmg = CalcDamage(myHero, unit, 0,  (math.max(5+ GetCastLevel(myHero, _Q) * 30) + myHero.totalDamage*1.15))
+local QPred = GetPredictionForPlayer(myHeroPos(),unit,GetMoveSpeed(unit),2500,250,1125,60,true,true)
+if ValidTarget(unit, 1598) then
+	if GnarMenu.MiniCombo.Q:Value() and GnarMenu.Misc.Gap:Value() and GnarMenu.MiniCombo	.E:Value() then
+		if Qdmg > GetCurrentHP(unit) and not IsInDistance(unit, GetCastRange(myHero, _Q)) and CanUseSpell(myHero, _Q) == READY and CanUseSpell(myHero, _E) == READY then
+			CastSkillShot(_E,mousePos.x,mousePos.y,mousePos.z)
+			if IsInDistance(unit, GetCastRange(myHero, _Q)) and QPred.HitChance == 1 then
+			CastSkillShot(_Q,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
+			end
+		end
+	end
+end
+end
