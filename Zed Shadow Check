@@ -1,0 +1,11 @@
+OnCreateObj(function(Object,myHero)
+	if GetObjectBaseName(Object) == "ZedShadow" then
+		WPos = Vector(spell.endPos.x,spell.endPos.y,spell.endPos.z)
+	end
+end)
+
+OnDeleteObj(function(Object,myHero)
+	if GetObjectBaseName(Object) == "ZedShadow" then
+		WPos = nil
+	end
+end)
